@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MerkController;
+use App\Http\Controllers\JenisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
 Route::get('/', function () {
     return view('home');
 });
 
-Route::view('/merk', 'merk');
+// Route::group(['middleware' => 'auth'],function (){
+//     Route::resource('merk', JenisController::class);
+//     Route::resource('jenis', MerkController::class);
+
+// });
+Route::resource('/data', DataController::class);
+Route::resource('/merk', MerkController::class);
+Route::resource('/jenis', JenisController::class);
+
+// Route::view('/data', 'data.view');
+// Route::view('/merk', 'merk.view');
+// Route::view('/jenis', 'jenis.view');

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jenis;
 use Illuminate\Http\Request;
 
-class JenisController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class JenisController extends Controller
      */
     public function index()
     {
-        $jenis = Jenis::all();
-        return view('jenis.view', compact('jenis'));
+        return view('home',);
     }
 
     /**
@@ -42,10 +40,10 @@ class JenisController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\jenis  $jenis
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(jenis $jenis)
+    public function show($id)
     {
         //
     }
@@ -53,10 +51,10 @@ class JenisController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\jenis  $jenis
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(jenis $jenis)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +63,10 @@ class JenisController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\jenis  $jenis
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, jenis $jenis)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class JenisController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\jenis  $jenis
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jenis $jenis)
+    public function destroy($id)
     {
         //
     }

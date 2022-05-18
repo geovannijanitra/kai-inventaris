@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/prism/prism.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/chocolat/dist/css/chocolat.css">
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/app.min.css">
   <!-- Template CSS -->
@@ -49,11 +51,14 @@
   <script src="{{ asset('theme') }}/assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
   <script src="{{ asset('theme') }}/assets/js/page/datatables.js"></script>
   <script src="{{ asset('theme') }}/assets/bundles/prism/prism.js"></script>
+  <script src="{{ asset('theme') }}/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="{{ asset('theme') }}/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
 
   <!-- JS Libraies -->
   <script src="{{ asset('theme') }}/assets/bundles/apexcharts/apexcharts.min.js"></script>
   <!-- Page Specific JS File -->
   <script src="{{ asset('theme') }}/assets/js/page/index.js"></script>
+
   <!-- Template JS File -->
   <script src="{{ asset('theme') }}/assets/js/scripts.js"></script>
   <!-- Custom JS File -->
