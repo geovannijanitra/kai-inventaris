@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\merk;
+use App\Models\Merk;
 use Illuminate\Http\Request;
 
 class MerkController extends Controller
@@ -14,7 +14,8 @@ class MerkController extends Controller
      */
     public function index()
     {
-        //
+        $merk = Merk::all();
+        return view('merk.view',compact('merk'));
     }
 
     /**
@@ -24,7 +25,8 @@ class MerkController extends Controller
      */
     public function create()
     {
-        //
+        $merk = Merk::all();
+        return view('merk.create',compact('merk'));
     }
 
     /**
@@ -35,7 +37,9 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Merk::crete($data);
+        return back();
     }
 
     /**
@@ -55,9 +59,10 @@ class MerkController extends Controller
      * @param  \App\Models\merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function edit(merk $merk)
+    public function edit($id)
     {
-        //
+        $merk = Merk::find($id);
+        return view('merk.update', compact('merk'));
     }
 
     /**
@@ -67,9 +72,12 @@ class MerkController extends Controller
      * @param  \App\Models\merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, merk $merk)
+    public function update(Request $request, $id)
     {
-        //
+        Merk::where('idMerk', $id)->update([
+            'namaMerk' => $request->namaMerk
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +88,7 @@ class MerkController extends Controller
      */
     public function destroy(merk $merk)
     {
-        //
+        Merk::destroy($merk->idMerk);
+        return redirect()->back();
     }
 }

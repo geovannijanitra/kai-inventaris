@@ -112,6 +112,7 @@ class JenisController extends Controller
      * @param  \App\Models\jenis  $jenis
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Jenis $jenis)
     {
         Jenis::destroy($jenis->kodeJenis);
