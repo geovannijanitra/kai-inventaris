@@ -10,6 +10,7 @@ class Jenis extends Model
     protected $table = 'jenis';
     protected $primaryKey = 'kodeJenis';
     protected $fillable = ['kodeJenis','jenisBarang'];
+
     public function merk()
     {
         return $this->hasMany(Merk::class, 'kode_jenis');

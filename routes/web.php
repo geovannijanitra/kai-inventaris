@@ -31,6 +31,9 @@ Route::resource('/data', DataController::class);
 Route::resource('/merk', MerkController::class);
 Route::resource('/jenis', JenisController::class);
 
+Route::get('merk/{id}/add', [JenisController::class, 'add']);
+Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
+
 // Route::view('/data', 'data.view');
 // Route::view('/merk', 'merk.view');
 // Route::view('/jenis', 'jenis.create');

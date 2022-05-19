@@ -38,7 +38,7 @@ class MerkController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Merk::crete($data);
+        Merk::create($data);
         return back();
     }
 
