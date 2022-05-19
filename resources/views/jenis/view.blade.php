@@ -1,5 +1,5 @@
 @extends('layout.template')
-@section('judul','Jenis')
+@section('judul','KAI Inventaris - Jenis Barang')
 @section('content')
 <div class="row">
     <div class="col-sm-12">
@@ -19,7 +19,7 @@
             <div class="card-header">
                 <h4>Jenis Table</h4>
                 <div class="card-header-action">
-                <a type="button" class="btn btn-icon icon-left btn-primary" href="jenis/create" ><i class="far fa-edit"></i>Tambah</a>
+                <a type="button" data-toggle="modal" data-target="#modalJenis" class="btn btn-icon icon-left btn-primary" href="jenis/create" ><i class="far fa-edit"></i>Tambah</a>
                 </div>
             </div>
             <div class="card-body">
@@ -83,20 +83,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="">
+                <form method="POST" class="form-horizontal" role="form" action="{{ url('/jenis') }}" enctype="multipart/form-data" autocomplete="off">
+                @csrf
                     <div class="form-group">
-                        <label>Kode Jenis</label>
+                        <label>Kode Barang</label>
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Masukkan Kode Jenis" name="email">
+                            <input type="text" class="form-control" placeholder="Masukkan Kode Jenis Barang" name="kodeJenis">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Nama Merk</label>
+                        <label>Jenis Barang</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Masukkan Nama Merk" name="password">
+                            <input type="text" class="form-control" placeholder="Masukkan Jenis Barang" name="jenisBarang">
                         </div>
                     </div>
-                <button type="button" class="btn btn-primary m-t-15 waves-effect">Input</button>
+                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Input</button>
                 </form>
             </div>
         </div>

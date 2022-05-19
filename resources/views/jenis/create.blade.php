@@ -1,5 +1,5 @@
 @extends('layout.template')
-@section('judul', 'Tambah Jenis')
+@section('judul', 'KAI Inventaris - Tambah Jenis')
 @section('content')
     <div class="card">
         <div class="card-header">

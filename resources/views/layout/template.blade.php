@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>@yield('judul')</title>
+  <link rel="shortcut icon" href="{{ asset('theme') }}/assets/img/logo.png">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/prism/prism.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jqvmap.min.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/flag-icon-css/css/flag-icon.min.css">
