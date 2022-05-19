@@ -14,7 +14,7 @@ class CreateDataTable extends Migration
     public function up()
     {
         Schema::create('data', function (Blueprint $table) {
-            $table->bigInteger('idBarang')->primary()->unsigned();
+            $table->id('idBarang')->unsigned();
             $table->bigInteger('kode_jenis')->unsigned();
             $table->foreign('kode_jenis')->references('kodeJenis')->on('jenis')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('id_merk')->unsigned();

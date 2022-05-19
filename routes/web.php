@@ -33,4 +33,4 @@ Route::resource('/jenis', JenisController::class);
 
 // Route::view('/data', 'data.view');
 // Route::view('/merk', 'merk.view');
-// Route::view('/jenis', 'jenis.view');
+// Route::view('/jenis', 'jenis.create');

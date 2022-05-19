@@ -2,11 +2,16 @@
 @section('judul','Jenis')
 @section('content')
 <div class="row">
-    <div class="col-12 col-sm-12 col-lg-12" data-toggle="modal" data-target="#modalJenis">
+    <div class="col-sm-12">
+            <h4 class="page-title">Data Jenis Barang</h4>
+            <p class=" page-title-alt">Berisikan jenis-jenis barang yang tersedia, tambahkan jika belum ada</p>
+        </div>
+
+    {{-- <div class="col-12 col-sm-12 col-lg-12" data-toggle="modal" data-target="#modalJenis">
         <div class="card">
             <div class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>Tambah Jenis</div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -14,8 +19,7 @@
             <div class="card-header">
                 <h4>Jenis Table</h4>
                 <div class="card-header-action">
-                <a tabindex="0"  role="button" data-toggle="popover" class="btn btn-warning" data-trigger="focus"
-                data-content="Tambah Jenis terlebih dahulu jika merk tersebut belum ada jenisnya">Info</a>
+                <a type="button" class="btn btn-icon icon-left btn-primary" href="jenis/create" ><i class="far fa-edit"></i>Tambah</a>
                 </div>
             </div>
             <div class="card-body">
@@ -24,24 +28,43 @@
                         <thead>
                             <tr>
                                 <th>Kode Jenis</th>
-                                <th>Jenis</th>
+                                <th>Jenis Barang</th>
+                                <th>Jumlah Merk</th>
                                 <th>Merk</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($jenis as $jenis)
                             <tr>
-                                <td>Tiger Nixon</td>
+                                <td>{{ $jenis->kodeJenis }}</td>
+                                <td>{{ $jenis->jenisBarang }}</td>
+                                <td>{{ count($jenis->merk) }} Merk</td>
+                                <td>
+                                    <a href="/merk/{{ $jenis->kodeJenis }}/merkbarang" type="button" class="btn btn-warning">Lihat</a>
+                                </td>
+                                <td>
+                                    <a href="/jenis/{{ $jenis->kodeJenis }}/edit" class="btn btn-primary far fa-edit"></a>
+                                    <form action="/jenis/{{ $jenis->kodeJenis }}" method="post" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya?')" class="btn btn-danger fa fa-trash"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                                {{-- <td>Tiger Nixon</td>
                                 <td>System Architect</td>
+                                <td>Edinburgh</td>
                                 <td>Edinburgh</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-icon btn-warning"><i class="far fa-edit"></i></a>
                                         <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
                                     </div>
-                                </td>
-                            </tr>
+                                </td> --}}
                         </tbody>
+                            @endforeach
+
                     </table>
                 </div>
             </div>

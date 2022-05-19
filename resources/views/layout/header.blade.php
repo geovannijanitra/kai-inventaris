@@ -40,13 +40,16 @@
             <li class="dropdown {{ request()->is('data') ? 'active' : '' }}">
               <a href="/data" class="nav-link"><i data-feather="mail"></i><span>Inventaris</span></a>
             </li>
-            <li class="dropdown  {{ request()->is('merk') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->is('merk') ? 'active' : '' }}">
+              <a href="/jenis" class="nav-link"><i data-feather="command"></i><span>Jenis & Merk</span></a>
+            </li>
+            {{-- <li class="dropdown  {{ request()->is('merk') ? 'active' : '' }}">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="command"></i><span>Jenis & Merk</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/jenis">Jenis</a></li>
                 <li><a class="nav-link" href="/merk">Merk</a></li>
-              </ul>
+              </ul> --}}
             {{-- </li>
             <li class="dropdown {{ request()->is('merk') ? 'active' : '' }}">
               <a href="/merk" class="nav-link"><i data-feather="command"></i><span>Jenis & Merk</span></a>

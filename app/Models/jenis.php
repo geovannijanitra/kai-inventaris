@@ -9,7 +9,7 @@ class Jenis extends Model
 {
     protected $table = 'jenis';
     protected $primaryKey = 'kodeJenis';
-    protected $fillable = ['kodeJenis','namaJenis'];
+    protected $fillable = ['kodeJenis','jenisBarang'];
     public function merk()
     {
         return $this->hasMany(merk::class, 'kode_jenis');

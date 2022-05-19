@@ -14,7 +14,7 @@ class CreateMerksTable extends Migration
     public function up()
     {
         Schema::create('merks', function (Blueprint $table) {
-            $table->bigInteger('idMerk')->unsigned()->primary();
+            $table->id('idMerk')->unsigned();
             $table->bigInteger('kode_jenis')->unsigned();
             $table->foreign('kode_jenis')->references('kodeJenis')->on('jenis')->onUpdate('cascade')->onDelete('cascade');
             $table->string('namaMerk');
