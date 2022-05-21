@@ -26,7 +26,7 @@ class MerkController extends Controller
     public function create()
     {
         $merk = Merk::all();
-        return view('merk.create',compact('merk'));
+        return view('merk.create',compact('merk'))->with('toastr-success');
     }
 
     /**

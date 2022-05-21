@@ -63,3 +63,21 @@ $("#toastr-8").click(function () {
     position: 'topCenter'
   });
 });
+
+// Custom Sweet Alert
+
+$("#toastr-succes").click(function () {
+  iziToast.success({
+    title: 'Successful!',
+    message: 'Data berhasil dimasukkan',
+    position: 'topCenter'
+  });
+});
+
+$("#toastr-failed").click(function () {
+  iziToast.warning({
+    title: 'Deleted!',
+    message: 'Data berhasil dihapus',
+    position: 'topCenter'
+  });
+});

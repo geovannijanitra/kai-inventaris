@@ -113,9 +113,9 @@ class JenisController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Jenis $jenis)
+    public function destroy($id)
     {
-        Jenis::destroy($jenis->kodeJenis);
-        return redirect('/jenis');
+        DB::table('jenis')->where('kodeJenis', $id)->delete();
+        return redirect()->back();
     }
 }
