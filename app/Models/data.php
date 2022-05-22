@@ -7,5 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Data extends Model
 {
-    use HasFactory;
+    protected $table = 'data';
+    protected $primaryKey = 'idBarang';
+    protected $fillable = [
+        'kode_jenis',
+        'id_merk',
+        'series',
+        'tanggalPengadaan',
+        'spek',
+        'ket',
+        'lokasi',
+        'status',
+        'noInventory',
+    ];
+
+    public function merk()
+    {
+        return $this->belongsTo(Merk::class, 'nik');
+    }
+
 }

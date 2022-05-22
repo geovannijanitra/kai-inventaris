@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\data;
+use App\Models\Jenis;
+use App\Models\Merk;
+use DateTime;
 use Illuminate\Http\Request;
+
 
 class DataController extends Controller
 {
@@ -14,7 +18,10 @@ class DataController extends Controller
      */
     public function index()
     {
-        //
+        $data = Data::all();
+        $jenis = Jenis::all();
+        $merk = Merk::all();
+        return view('data.view', compact('data','jenis', 'merk'));
     }
 
     /**
@@ -24,7 +31,10 @@ class DataController extends Controller
      */
     public function create()
     {
-        //
+        $data = Data::all();
+        $jenis = Jenis::all();
+        $merk = Merk::all();
+        return view('data.view', compact('data', 'jenis', 'merk'));
     }
 
     /**

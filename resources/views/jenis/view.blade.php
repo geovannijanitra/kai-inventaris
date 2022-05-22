@@ -62,8 +62,8 @@
                                         <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-times"></i></a>
                                     </div>
                                 </td> --}}
+                                @endforeach
                         </tbody>
-                            @endforeach
 
                     </table>
                 </div>

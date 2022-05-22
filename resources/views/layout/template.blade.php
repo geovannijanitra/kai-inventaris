@@ -9,7 +9,7 @@
   <title>@yield('judul')</title>
 
 
-  <!-- General CSS Files -->
+  {{-- <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('theme')}}/assets/css/app.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('theme')}}/assets/css/style.css">
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="{{asset('theme')}}/assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="{{asset('theme')}}/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('theme')}}/assets/css/style.css">
-  <link rel="stylesheet" href="{{asset('theme')}}/assets/css/components.css">
+  <link rel="stylesheet" href="{{asset('theme')}}/assets/css/components.css"> --}}
 
-{{--
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/app.min.css">
   <!-- Template CSS -->
@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/prism/prism.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/chocolat/dist/css/chocolat.css"> --}}
+  <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/chocolat/dist/css/chocolat.css">
 
 </head>
 
@@ -58,7 +58,7 @@
       @include('layout.footer')
     </div>
   </div>
-    <!-- General JS Scripts -->
+    {{-- <!-- General JS Scripts -->
   <script src="{{asset('theme')}}/assets/js/app.min.js"></script>
   <!-- JS Libraies -->
   <script src="{{asset('theme')}}/assets/bundles/apexcharts/apexcharts.min.js"></script>
@@ -77,8 +77,9 @@
 <script src="{{asset('theme')}}/assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
 <script src="{{asset('theme')}}/assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
 <script src="{{asset('theme')}}/assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
-<script src="{{asset('theme')}}/assets/js/page/datatables.js"></script>
-  {{-- <!-- General JS Scripts -->
+<script src="{{asset('theme')}}/assets/js/page/datatables.js"></script> --}}
+
+  <!-- General JS Scripts -->
   <script src="{{ asset('theme') }}/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
   <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
@@ -103,7 +104,7 @@
   <!-- Template JS File -->
   <script src="{{ asset('theme') }}/assets/js/scripts.js"></script>
   <!-- Custom JS File -->
-  <script src="{{ asset('theme') }}/assets/js/custom.js"></script> --}}
+  <script src="{{ asset('theme') }}/assets/js/custom.js"></script>
 </body>
 
 
