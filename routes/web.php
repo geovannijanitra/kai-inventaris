@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\DropdownController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,11 @@ Route::resource('/jenis', JenisController::class);
 
 Route::get('merk/{id}/add', [JenisController::class, 'add']);
 Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
+
+Route::get('get-jenis', [DropdownController::class, 'getJenis'])->name('getJenis');
+Route::get('get-merk', [DropdownController::class, 'getMerk'])->name('getMerk');
+
+// Route::get  ('/getmerk', [DataController::class, 'getmerk']);
 
 // Route::view('/data', 'data.view');
 // Route::view('/merk', 'merk.view');

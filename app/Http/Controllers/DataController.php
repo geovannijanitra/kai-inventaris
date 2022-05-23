@@ -24,6 +24,17 @@ class DataController extends Controller
         return view('data.view', compact('data','jenis', 'merk'));
     }
 
+    public function getmerk(request $request)
+    {
+        $id_merk = $request->id_merk;
+
+        $merks = Merk::where('kode_jenis', $id_merk)->get();
+
+        foreach ($merks as $merk) {
+            echo "<option value='$merk->idMerk'>$merk->namaMerk</option>";
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

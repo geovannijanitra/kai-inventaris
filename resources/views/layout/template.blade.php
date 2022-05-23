@@ -6,6 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>@yield('judul')</title>
 
 
@@ -32,6 +33,9 @@
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/style.css">
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/components.css">
   <!-- Custom style CSS -->
+
+
+
   <link href="{{ asset('theme') }}/assets/bundles/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/custom.css">
   <link rel='shortcut icon' type='image/x-icon'href="{{ asset('theme') }}/assets/img/favicon.ico">
@@ -80,6 +84,10 @@
 <script src="{{asset('theme')}}/assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
 <script src="{{asset('theme')}}/assets/js/page/datatables.js"></script> --}}
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- General JS Scripts -->
   <script src="{{ asset('theme') }}/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
@@ -107,6 +115,56 @@
   <script src="{{ asset('theme') }}/assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="{{ asset('theme') }}/assets/js/custom.js"></script>
+
+  {{-- <script>
+      $(function() {
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+
+        $(function(){
+            $('#kode_jenis').on('change',function(){
+                let id_jenis = $('kode_jenis').val();
+
+                $.ajax({
+                    type : 'POST',
+                    url : "{{ route('getmerk')}}",
+                    data :  {id_jenis:id_jenis},
+                    cache : false,
+
+                    success:function(msg){
+                        $('#id_merk').html(msg);
+                    },
+
+                    error: function(data){
+                        console.log('error',data);
+                    },
+                })
+            });
+        });
+      });
+  </script> --}}
+
+  <script type="text/javascript">
+        $(document).ready(function () {
+            $('#kode_jenis').on('change', function () {
+                var jenisId = this.value;
+                $('#id_merk').html('');
+                $.ajax({
+                    url: '{{ route('getMerk') }}?kode_jenis='+jenisId,
+                    type: 'get',
+                    success: function (res) {
+                        $('#id_merk').html('<option value="">Select Merk</option>');
+                        $.each(res, function (key, value) {
+                            $('#id_merk').append('<option value="' + value
+                                .idMerk + '">' + value.namaMerk + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 
