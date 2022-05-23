@@ -4,6 +4,11 @@ $(window).on("load", function () {
   $(".loader").fadeOut("slow");
 });
 
+ // Select2
+  if (jQuery().select2) {
+    $(".select2").select2();
+  }
+
 feather.replace();
 // Global
 $(function () {

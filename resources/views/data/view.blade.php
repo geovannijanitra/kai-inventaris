@@ -12,29 +12,49 @@
     <div class="card">
         <div class="card-header">
             <h4>Input Data Inventaris</h4>
+            <div class="card-header-action">
+                <a role="button" tabindex="0"  data-toggle="popover" class="btn btn-icon icon-left btn-warning" title="Pastikan Sesuai"
+                      data-content="Pastikan kode jenis di kolom jenis sesuai dengan kode jenis di kolom merk"><i class="fas fa-info-circle"></i>Info</a>
+                </div>
         </div>
         <div class="card-body">
-            <div class="form-row">
+            <form data-parsley-validate method="POST" action="{{url('/data')}}" enctype="multipart/form-data" autocomplete="off">
+                @csrf
+                <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Pilih Jenis</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="kode_jenis">Pilih Jenis</label>
+                    <select name="kode_jenis" id="kode_jenis" class="form-control select2">
+                        <option value="" selected hidden>Choose...</option>
+                        @foreach ($jenis as $jns)
+                        <option value="{{ $jns->kode_jenis }}">{{ $jns->kodeJenis}} - {{ $jns->jenisBarang }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Pilih Merk</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <select name="id_merk" id="id_merk" class="form-control select2">
+                        <option value=""  selected hidden>Choose...</option>
+                        @foreach ($merk as $mk)
+                        <option value="{{ $mk->id_merk }}">{{ $mk->kode_jenis}} - {{ $mk->namaMerk}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputAddress">Series</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="series">Series</label>
+                <input type="text" class="form-control" id="series" name="series" placeholder="Masukkan Series">
+            </div>
+            <div class="form-group">
+                <label for="series">Serial Number</label>
+                <input type="text" class="form-control" id="serialNumber" name="serialNumber" placeholder="Masukkan Serial Number">
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Spesifikasi</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="spek" name="spek" placeholder="Masukkan Spesifikasi Barang">
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Keterangan</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">

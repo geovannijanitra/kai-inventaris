@@ -13,12 +13,14 @@ class Data extends Model
         'kode_jenis',
         'id_merk',
         'series',
+        'serialNumber',
         'tanggalPengadaan',
         'spek',
         'ket',
         'lokasi',
         'status',
         'noInventory',
+        'pengguna',
     ];
 
     public function merk()
