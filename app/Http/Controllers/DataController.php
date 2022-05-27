@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\data;
+use App\Models\Data;
 use App\Models\Jenis;
 use App\Models\Merk;
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -42,7 +44,9 @@ class DataController extends Controller
      */
     public function create()
     {
-        $data = Data::all();
+        $detailjenis = Jenis::where('kodeJenis','kode_jenis')->get();
+        $detailmerk = Merk::where('idMerk', 'id_merk')->get();
+
         $jenis = Jenis::all();
         $merk = Merk::all();
         return view('data.view', compact('data', 'jenis', 'merk'));
@@ -56,7 +60,26 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $now = \Carbon\Carbon::now('Asia/Jakarta');
+        $bulan = $now->format('D/M/Y');
+
+        Data::create([
+            'kode_jenis' => $request->kode_jenis,
+            'id_merk' => $request->id_merk,
+            'series' => $request->series,
+            'serialNumber' => $request->serialNumber,
+            'tanggalPengadaan' => $now,
+            'spek' => $request->spek,
+            'ket' => $request->ket,
+            'lokasi' => $request->lokasi,
+            'status' => $request->status,
+            'noInventory' => 'ITAR.' .$request->kode_jenis. $request->now .'.B070.000',
+            'pengguna' => $request->pengguna,
+        ]);
+
+        return redirect('/data');
+
     }
 
     /**

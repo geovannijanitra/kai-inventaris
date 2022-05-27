@@ -23,14 +23,14 @@ class Data extends Model
         'pengguna',
     ];
 
-    public function jenis()
+    public function detailjenis()
     {
-        return $this->belongsTo(Jenis::class, 'kodeJenis');
+        return $this->belongsTo(Jenis::class, 'kode_jenis');
     }
 
-    public function merk()
+    public function detailmerk()
     {
-        return $this->belongsTo(Merk::class, 'idMerk');
+        return $this->belongsTo(Merk::class, 'id_merk');
     }
 
 }

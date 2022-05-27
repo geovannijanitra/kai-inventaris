@@ -15,4 +15,8 @@ class Jenis extends Model
     {
         return $this->hasMany(Merk::class, 'kode_jenis');
     }
+
+    public function detailjenis(){
+        return $this->hasMany(Data::class, 'kode_jenis');
+    }
 }

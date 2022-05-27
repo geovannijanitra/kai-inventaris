@@ -15,4 +15,9 @@ class Merk extends Model
     {
         return $this->belongsTo(Jenis::class, 'kode_jenis');
     }
+
+    public function detailmerk()
+    {
+        return $this->belongsTo(Data::class, 'id_merk');
+    }
 }

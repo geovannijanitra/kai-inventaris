@@ -2,9 +2,9 @@
 @section('judul', 'KAI Inventaris - Data Inventaris')
 @section('content')
     <div class="row">
-        <div class="col-sm-12">
-            <h4 class="page-title">Data Jenis Barang</h4>
-            <p class=" page-title-alt">Berisikan jenis-jenis barang yang tersedia, tambahkan jika belum ada</p>
+        <div class="col-sm-12 " id="create">
+            <h4 class="page-title">Data Inventaris Barang</h4>
+            <p class=" page-title-alt">Berisikan inventaris barang</p>
         </div>
 
     </div>
@@ -12,55 +12,62 @@
     <div class="card">
         <div class="card-header">
             <h4>Input Data Inventaris</h4>
-            <div class="card-header-action">
-                <a role="button" tabindex="0"  data-toggle="popover" class="btn btn-icon icon-left btn-warning" title="Pastikan Sesuai"
-                      data-content="Pastikan kode jenis di kolom jenis sesuai dengan kode jenis di kolom merk"><i class="fas fa-info-circle"></i>Info</a>
-                </div>
         </div>
         <div class="card-body">
-            <form data-parsley-validate method="POST" action="{{url('/data')}}" enctype="multipart/form-data" autocomplete="off">
+            <form data-parsley-validate method="POST" action="{{ url('/data') }}" enctype="multipart/form-data"
+                autocomplete="off">
                 @csrf
                 <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="kode_jenis">Pilih Jenis</label>
-                    <select name="kode_jenis" id="kode_jenis" class="form-control select2">
-                        <option value="" selected hidden>Choose...</option>
-                        @foreach ($jenis as $jns)
-                        <option value="{{ $jns->kodeJenis }}">{{ $jns->kodeJenis}} - {{ $jns->jenisBarang }}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group col-md-6">
+                        <label for="kode_jenis">Pilih Jenis</label>
+                        <select name="kode_jenis" id="kode_jenis" class="form-control select2">
+                            <option value="" selected hidden>Choose...</option>
+                            @foreach ($jenis as $jns)
+                                <option value="{{ $jns->kodeJenis }}">{{ $jns->kodeJenis }} - {{ $jns->jenisBarang }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="id_merk">Pilih Merk</label>
+                        <select name="id_merk" id="id_merk" class="form-control select2">
+                            <option value="" selected hidden>Choose...</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Pilih Merk</label>
-                    <select name="id_merk" id="id_merk" class="form-control select2">
-                        <option value=""  selected hidden>Choose...</option>
-                    </select>
+                <div class="form-group">
+                    <label for="series">Series</label>
+                    <input type="text" class="form-control" id="series" name="series" placeholder="Masukkan Series">
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Series</label>
-                <input type="text" class="form-control" id="series" name="series" placeholder="Masukkan Series">
-            </div>
-            <div class="form-group">
-                <label for="series">Serial Number</label>
-                <input type="text" class="form-control" id="serialNumber" name="serialNumber" placeholder="Masukkan Serial Number">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Spesifikasi</label>
-                <input type="text" class="form-control" id="spek" name="spek" placeholder="Masukkan Spesifikasi Barang">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Keterangan</label>
-                <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan">
-            </div>
-            <div class="form-row">
+                <div class="form-group">
+                    <label for="series">Serial Number</label>
+                    <input type="text" class="form-control" id="serialNumber" name="serialNumber"
+                        placeholder="Masukkan Serial Number">
+                </div>
+                <div class="form-group">
+                    <label for="spek">Spesifikasi</label>
+                    <input type="text" class="form-control" id="spek" name="spek"
+                        placeholder="Masukkan Spesifikasi Barang">
+                </div>
+                <div class="form-group">
+                    <label for="ket">Keterangan</label>
+                    <input type="text" class="form-control" id="ket" name="ket" placeholder="Masukkan Keterangan">
+                </div>
                 <div class="form-group col-md-6">
                     <label for="pengguna">Pengguna</label>
                     <input type="text" class="form-control" id="pengguna" name="pengguna" placeholder="Masukkan Pengguna">
                 </div>
+                <div class="form-group col-md-2">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" class="form-control">
+                        <option selected hidden>Choose...</option>
+                        <option value="Baik">Baik</option>
+                        <option value="Rusak">Rusak</option>
+                    </select>
+                </div>
                 <div class="form-group col-md-4">
                     <label for="lokasi">Lokasi</label>
-                    <select id="lokasi" name="lokas" class="form-control select2">
+                    <select id="lokasi" name="lokasi" class="form-control select2">
                         <option selected hidden>Choose...</option>
                         <option value="Angkutan Barang">Angkutan Barang</option>
                         <option value="Asset Non Produksi">Asset Non Produksi</option>
@@ -163,18 +170,11 @@
                         <option value="BP. BL">BP. BL</option>
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Status</label>
-                    <select id="inputState" class="form-control">
-                        <option selected hidden>Choose...</option>
-                        <option value="Baik">Baik</option>
-                        <option value="Rusak">Rusak</option>
-                    </select>
+
+                <div class="card-footer">
+                    <button class="btn btn-primary">Submit</button>
                 </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <button class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>
 
@@ -182,11 +182,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Jenis Table</h4>
+                    <h4>Inventaris Table</h4>
                     <div class="card-header-action">
-                        <a type="button" data-toggle="modal" data-target="#modalJenis"
-                            class="btn btn-icon icon-left btn-primary" href="jenis/create"><i
-                                class="far fa-edit"></i>Tambah</a>
+                        <a type="button" href="#create" class="btn btn-icon icon-left btn-primary"
+                            style="scroll-behavior :smooth;"><i class="far fa-edit"></i>Tambah</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -211,8 +210,8 @@
                             <tbody>
                                 @foreach ($data as $data)
                                     <tr>
-                                        <td>{{ $data->kode_jenis }}</td>
-                                        <td>{{ $data->id_merk }}</td>
+                                        <td>{{ $data->detailjenis->jenisBarang }}</td>
+                                        <td>{{ $data->detailmerk->namaMerk }}</td>
                                         <td>{{ $data->series }}</td>
                                         <td>{{ $data->serialNumber }}</td>
                                         <td>{{ $data->tanggalPengadaan }}</td>
@@ -223,11 +222,7 @@
                                         <td>{{ $data->status }}</td>
                                         <td>{{ $data->noInventory }}</td>
                                         <td> </td>
-                                        <td>
-                                            <a href="/merk/{{ $jenis->kodeJenis }}/merkbarang" type="button"
-                                                class="btn btn-warning">Lihat</a>
-                                        </td>
-                                        <td>
+                                        {{-- <td>
                                             <a href="/jenis/{{ $jenis->kodeJenis }}/edit"
                                                 class="btn btn-primary far fa-edit"></a>
                                             <form action="/jenis/{{ $jenis->kodeJenis }}" method="post"
@@ -238,7 +233,7 @@
                                                     onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya?')"
                                                     class="btn btn-danger fa fa-trash"></button>
                                             </form>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     {{-- <td>Tiger Nixon</td>
                                 <td>System Architect</td>
