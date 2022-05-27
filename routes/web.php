@@ -35,6 +35,8 @@ Route::resource('/jenis', JenisController::class);
 
 Route::get('merk/{id}/add', [JenisController::class, 'add']);
 Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
+Route::get('/data/{id}/printData', [DataController::class, 'printData']);
+
 
 Route::get('get-jenis', [DropdownController::class, 'getJenis'])->name('getJenis');
 Route::get('get-merk', [DropdownController::class, 'getMerk'])->name('getMerk');

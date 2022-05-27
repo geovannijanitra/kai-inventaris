@@ -221,7 +221,20 @@
                                         <td>{{ $data->pengguna }}</td>
                                         <td>{{ $data->status }}</td>
                                         <td>{{ $data->noInventory }}</td>
-                                        <td> </td>
+                                        <td>
+                                            <a href="/data/{{ $data->idBarang }}/printData"
+                                                class="btn btn-success"> <i
+                                                    class="fa fa-trash"></i></a>
+                                            <form action="/data/{{ $data->idBarang }}" method="post"
+                                                class="d-inline">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit"
+                                                    onclick="return confirm('Apakah Anda Yakin untuk Menghapus Data ini?')"
+                                                    class="btn btn-icon waves-effect waves-light btn-danger col-md-5"> <i
+                                                        class="fa fa-trash"></i></button>
+                                            </form>
+                                        </td>
                                         {{-- <td>
                                             <a href="/jenis/{{ $jenis->kodeJenis }}/edit"
                                                 class="btn btn-primary far fa-edit"></a>

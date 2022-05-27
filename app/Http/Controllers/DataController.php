@@ -82,6 +82,16 @@ class DataController extends Controller
 
     }
 
+    public function printData($id)
+    {
+        $data = Data::find($id);
+
+        $pdf = PDF::loadview('data.cetak', [
+            'noInventory' =>$data->noInventory,
+        ]);
+        return $pdf->stream();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -124,6 +134,8 @@ class DataController extends Controller
      */
     public function destroy(data $data)
     {
-        //
+        Data::destroy($data->idBarang);
+        return redirect('/data');
+
     }
 }
