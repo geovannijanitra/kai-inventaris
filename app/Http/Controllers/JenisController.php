@@ -42,7 +42,7 @@ class JenisController extends Controller
         $jenis = Jenis::all();
         $merk = Merk::all();
 
-        return view('jenis.create', compact('jenis','merk'));
+        return view('jenis.create', compact('jenis','merk'))->with('message', 'Data added Successfully');
     }
 
     public function merk($id)
@@ -64,7 +64,7 @@ class JenisController extends Controller
     {
         $data = $request->all();
         Jenis::create($data);
-        return redirect('/jenis');
+        return redirect('/jenis')->with('message', 'Data added Successfully');
     }
 
     public function add($id)
@@ -72,7 +72,7 @@ class JenisController extends Controller
         $jenis = Jenis::all();
         $merk = Merk::find($id);
 
-        return view('jenis.create', compact('jenis', 'merk'));
+        return view('jenis.create', compact('jenis', 'merk'))->with('message', 'Data added Successfully');
     }
 
     public function read($id)
@@ -86,7 +86,7 @@ class JenisController extends Controller
     public function edit($id)
     {
         $jenis = Jenis::find($id);
-        return view('jenis.update', compact('jenis'));
+        return view('jenis.update', compact('jenis'))->with('info', 'The information was updated');
     }
 
     /**
@@ -103,7 +103,7 @@ class JenisController extends Controller
             'jenisBarang' => $request->jenisBarang
         ]);
 
-        return redirect('jenis');
+        return redirect('jenis')->with('info', 'The information was updated');
     }
 
     /**
@@ -116,6 +116,6 @@ class JenisController extends Controller
     public function destroy($id)
     {
         DB::table('jenis')->where('kodeJenis', $id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Data Deleted');
     }
 }

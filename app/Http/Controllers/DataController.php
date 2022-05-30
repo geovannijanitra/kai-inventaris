@@ -49,7 +49,7 @@ class DataController extends Controller
 
         $jenis = Jenis::all();
         $merk = Merk::all();
-        return view('data.view', compact('data', 'jenis', 'merk'));
+        return view('data.view', compact('data', 'jenis', 'merk'))->with('message', 'Data added Successfully');
     }
 
     /**
@@ -79,8 +79,7 @@ class DataController extends Controller
             'pengguna' => $request->pengguna,
         ]);
 
-        return redirect('/data');
-
+        return redirect('/data')->with('message', 'Data added Successfully');
     }
 
     public function printData($id)
@@ -136,7 +135,7 @@ class DataController extends Controller
     public function destroy(data $data)
     {
         Data::destroy($data->idBarang);
-        return redirect('/data');
+        return redirect('/data')->with('error', 'Data Deleted');
 
     }
 }

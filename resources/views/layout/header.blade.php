@@ -9,21 +9,32 @@
           </ul>
         </div>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" data-toggle="dropdown"
-              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('theme') }}/assets/img/user.png"
-                class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
-            <div class="dropdown-menu dropdown-menu-right pullDown">
-              <div class="dropdown-title">Hello!</div>
-              <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-                Settings
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-        </ul>
+        @auth
+            <li class="dropdown"><a href="#" data-toggle="dropdown"
+                    class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                        src="{{ asset('theme') }}/assets/img/user.png" class="user-img-radious-style"> <span
+                        class="d-sm-none d-lg-inline-block"></span></a>
+                <div class="dropdown-menu dropdown-menu-right pullDown">
+                    <div class="dropdown-title">Hello!, {{ auth()->user()->name }}</div>
+                    <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <form action="/logout" method="post">
+                        @csrf
+                        {{-- <a href="#" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                  </a> --}}
+                        <button type="submit" href="#" class="dropdown-item has-icon text-danger" style="background-color:white!important"> <i
+                                class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </li>
+        @else
+        @endauth
+    </ul>
       </nav>
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">

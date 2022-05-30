@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\MerkController;
@@ -27,19 +28,30 @@ Route::get('/', function () {
 // Route::group(['middleware' => 'auth'],function (){
 //     Route::resource('merk', JenisController::class);
 //     Route::resource('jenis', MerkController::class);
+Route::get('/login',  [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login',  [LoginController::class, 'authenticate']);
 
+Route::post('/logout',  [LoginController::class, 'logout']);
 // });
-Route::resource('/data', DataController::class);
-Route::resource('/merk', MerkController::class);
-Route::resource('/jenis', JenisController::class);
+Route::group(
+    ['middleware' => 'auth'],function () {
 
-Route::get('merk/{id}/add', [JenisController::class, 'add']);
-Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
-Route::get('/data/{id}/printData', [DataController::class, 'printData']);
+        Route::resource('/data', DataController::class);
+        Route::resource('/merk', MerkController::class);
+        Route::resource('/jenis', JenisController::class);
+
+        Route::get('merk/{id}/add', [JenisController::class, 'add']);
+        Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
+        Route::get('/data/{id}/printData', [DataController::class, 'printData']);
 
 
-Route::get('get-jenis', [DropdownController::class, 'getJenis'])->name('getJenis');
-Route::get('get-merk', [DropdownController::class, 'getMerk'])->name('getMerk');
+
+        Route::get('get-jenis', [DropdownController::class, 'getJenis'])->name('getJenis');
+        Route::get('get-merk', [DropdownController::class, 'getMerk'])->name('getMerk');
+
+    });
+
+
 
 // Route::get  ('/getmerk', [DataController::class, 'getmerk']);
 

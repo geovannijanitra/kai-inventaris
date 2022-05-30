@@ -8,12 +8,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <style>
-        * {
-            scroll-behavior: smooth;
-        }
-
-    </style>
     <title>@yield('judul')</title>
 
 
@@ -36,8 +30,6 @@
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/app.min.css">
-    <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/izitoast/css/iziToast.min.css">
-    <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jqvmap.min.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/components.css">
@@ -63,16 +55,70 @@
 <body>
     <div class="loader"></div>
     <div id="app">
-        <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg"></div>
-            @include('layout.header')
-            <!-- Main Content -->
-            <div class="main-content">
-                @yield('content')
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div
+                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session()->has('loginError'))
+                            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                                {{ session('loginError') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                                {{ $errors }}
+                            </div>
+                        @endif
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/login" class="needs-validation" novalidate="">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                            required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please fill in your email
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="d-block">
+                                            <label for="password" class="control-label">Password</label>
+                                            <div class="float-right">
+                                                <a href="auth-forgot-password.html" class="text-small">
+                                                    Forgot Password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <input id="password" type="password" class="form-control" name="password"
+                                            tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            please fill in your password
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            @include('layout.footer')
-        </div>
+        </section>
     </div>
+
     {{-- <!-- General JS Scripts -->
   <script src="{{asset('theme')}}/assets/js/app.min.js"></script>
   <!-- JS Libraies -->
@@ -95,24 +141,12 @@
 <script src="{{asset('theme')}}/assets/js/page/datatables.js"></script> --}}
 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
-     alpha/css/bootstrap.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- General JS Scripts -->
     <script src="{{ asset('theme') }}/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
-    <script src="{{ asset('theme') }}/assets/bundles/chartjs/chart.min.js"></script>
-    <script src="{{ asset('theme') }}/assets/js/page/chart-chartjs.js"></script>
-
     <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/datatables.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/datatables/datatables.min.js"></script>
@@ -129,13 +163,8 @@
     <script src="{{ asset('theme') }}/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/apexcharts/apexcharts.min.js"></script>
-    <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
-    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('theme') }}/assets/js/page/vector-map.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/select2/js/select2.min.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/toastr.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/index.js"></script>
@@ -144,68 +173,7 @@
     <!-- Custom JS File -->
     <script src="{{ asset('theme') }}/assets/js/custom.js"></script>
 
-    {{-- <script>
-      $(function() {
-        $.ajaxSetup({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-        });
 
-        $(function(){
-            $('#kode_jenis').on('change',function(){
-                let id_jenis = $('kode_jenis').val();
-
-                $.ajax({
-                    type : 'POST',
-                    url : "{{ route('getmerk')}}",
-                    data :  {id_jenis:id_jenis},
-                    cache : false,
-
-                    success:function(msg){
-                        $('#id_merk').html(msg);
-                    },
-
-                    error: function(data){
-                        console.log('error',data);
-                    },
-                })
-            });
-        });
-      });
-  </script> --}}
-
-    <script>
-        @if (Session::has('message'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('message') }}");
-        @endif
-
-        @if (Session::has('error'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('error') }}");
-        @endif
-
-        @if (Session::has('info'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.info("{{ session('info') }}");
-        @endif
-
-        @if (Session::has('warning'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.warning("{{ session('warning') }}");
-        @endif
-    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {
