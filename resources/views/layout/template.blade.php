@@ -9,9 +9,10 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <style>
-        *{
+        * {
             scroll-behavior: smooth;
         }
+
     </style>
     <title>@yield('judul')</title>
 
@@ -35,6 +36,8 @@
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/app.min.css">
+    <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/izitoast/css/iziToast.min.css">
+    <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jqvmap.min.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/components.css">
@@ -98,11 +101,13 @@
     <!-- General JS Scripts -->
     <script src="{{ asset('theme') }}/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
+    <script src="{{ asset('theme') }}/assets/bundles/chartjs/chart.min.js"></script>
+    <script src="{{ asset('theme') }}/assets/js/page/chart-chartjs.js"></script>
+
     <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/datatables.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/datatables/datatables.min.js"></script>
-    <script src="{{ asset('theme') }}/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js">
-    </script>
+    <script src="{{ asset('theme') }}/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/datatables/export-tables/dataTables.buttons.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/datatables/export-tables/jszip.min.js"></script>
@@ -114,8 +119,13 @@
     <script src="{{ asset('theme') }}/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
+    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
 
     <!-- Page Specific JS File -->
+    <script src="{{ asset('theme') }}/assets/js/page/vector-map.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/select2/js/select2.min.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/toastr.js"></script>
     <script src="{{ asset('theme') }}/assets/js/page/index.js"></script>

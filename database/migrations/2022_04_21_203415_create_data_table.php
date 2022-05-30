@@ -21,13 +21,14 @@ class CreateDataTable extends Migration
             $table->foreign('id_merk')->references('idMerk')->on('merks')->onUpdate('cascade')->onDelete('cascade');
             $table->string('series');
             $table->string('serialNumber');
-            $table->date('tanggalPengadaan');
+            $table->string('tanggalPengadaan');
             $table->string('spek');
             $table->string('ket');
             $table->string('lokasi');
             $table->string('status');
             $table->string('noInventory');
             $table->string('pengguna');
+            $table->string('urut')->nullable();
             $table->timestamps();
         });
     }

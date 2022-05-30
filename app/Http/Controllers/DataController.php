@@ -62,19 +62,20 @@ class DataController extends Controller
     {
         // dd($request);
         $now = \Carbon\Carbon::now('Asia/Jakarta');
-        $bulan = $now->format('D/M/Y');
+        $bulan = $now->format('my');
+        $tanggal = $now->format('d M y');
 
         Data::create([
             'kode_jenis' => $request->kode_jenis,
             'id_merk' => $request->id_merk,
             'series' => $request->series,
             'serialNumber' => $request->serialNumber,
-            'tanggalPengadaan' => $now,
+            'tanggalPengadaan' => $tanggal,
             'spek' => $request->spek,
             'ket' => $request->ket,
             'lokasi' => $request->lokasi,
             'status' => $request->status,
-            'noInventory' => 'ITAR.' .$request->kode_jenis. $request->now .'.B070.000',
+            'noInventory' => 'ITAR.' .$request->kode_jenis.'.'.$bulan.'.B070.',
             'pengguna' => $request->pengguna,
         ]);
 
@@ -87,7 +88,7 @@ class DataController extends Controller
         $data = Data::find($id);
 
         $pdf = PDF::loadview('data.cetak', [
-            'noInventory' =>$data->noInventory,
+            'noInventory' =>$data->noInventory. $data->urut ,
         ]);
         return $pdf->stream();
     }
