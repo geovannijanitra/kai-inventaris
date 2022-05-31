@@ -9,7 +9,13 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('judul')</title>
-
+    <style>
+        body{
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 
     {{-- <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('theme')}}/assets/css/app.min.css">
@@ -77,7 +83,7 @@
                         @endif
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4>Login</h4>
+                                <h4>Login Aset Inventaris</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="/login" class="needs-validation" novalidate="">
@@ -93,11 +99,6 @@
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label">Password</label>
-                                            <div class="float-right">
-                                                <a href="auth-forgot-password.html" class="text-small">
-                                                    Forgot Password?
-                                                </a>
-                                            </div>
                                         </div>
                                         <input id="password" type="password" class="form-control" name="password"
                                             tabindex="2" required>

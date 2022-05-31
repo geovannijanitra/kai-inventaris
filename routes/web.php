@@ -23,7 +23,7 @@ use App\Http\Controllers\DropdownController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('auth');
 
 // Route::group(['middleware' => 'auth'],function (){
 //     Route::resource('merk', JenisController::class);
