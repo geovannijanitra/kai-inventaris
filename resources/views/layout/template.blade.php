@@ -128,6 +128,7 @@
     <script src="{{ asset('theme') }}/assets/bundles/prism/prism.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{ asset('theme') }}/assets/js/page/chart-apexcharts.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/apexcharts/apexcharts.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/izitoast/js/iziToast.min.js"></script>
     <script src="{{ asset('theme') }}/assets/bundles/jqvmap/dist/jquery.vmap.min.js"></script>
