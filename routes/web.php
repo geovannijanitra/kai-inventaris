@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\JenisController;
@@ -31,14 +31,19 @@ Route::get('/', function () {
 Route::get('/login',  [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login',  [LoginController::class, 'authenticate']);
 
+
+
 Route::post('/logout',  [LoginController::class, 'logout']);
 // });
 Route::group(
-    ['middleware' => 'auth'],function () {
+    ['middleware' => 'auth'],
+    function () {
 
         Route::resource('/data', DataController::class);
         Route::resource('/merk', MerkController::class);
         Route::resource('/jenis', JenisController::class);
+
+        Route::post('/change_password/{id}', [PasswordController::class, 'update']);
 
         Route::get('merk/{id}/add', [JenisController::class, 'add']);
         Route::get('merk/{id}/merkbarang', [JenisController::class, 'merkbarang']);
@@ -48,8 +53,8 @@ Route::group(
 
         Route::get('get-jenis', [DropdownController::class, 'getJenis'])->name('getJenis');
         Route::get('get-merk', [DropdownController::class, 'getMerk'])->name('getMerk');
-
-    });
+    }
+);
 
 
 
