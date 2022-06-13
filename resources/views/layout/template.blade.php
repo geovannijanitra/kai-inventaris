@@ -47,7 +47,7 @@
 
     <link href="{{ asset('theme') }}/assets/bundles/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('theme') }}/assets/img/favicon.ico">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('theme') }}/assets/img/logo.png">
 
     <link rel="shortcut icon" href="{{ asset('theme') }}/assets/img/logo.png">
     <link rel="stylesheet" href="{{ asset('theme') }}/assets/bundles/prism/prism.css">

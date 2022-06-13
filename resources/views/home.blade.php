@@ -13,7 +13,6 @@
                                         <div class="card-content">
                                             <h5 class="font-15">Inventaris</h5>
                                             <h2 class="mb-3 font-18"></h2>
-                                            <p class="mb-0"><span class="col-green">10%</span> Increase</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -37,7 +36,6 @@
                                         <div class="card-content">
                                             <h5 class="font-15"> Jenis & Merk</h5>
                                             <h2 class="mb-3 font-18"></h2>
-                                            <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -61,8 +59,6 @@
                                         <div class="card-content">
                                             <h5 class="font-15">Change Password</h5>
                                             <h2 class="mb-3 font-18"></h2>
-                                            <p class="mb-0"><span class="col-green">18%</span>
-                                                Increase</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -88,8 +84,6 @@
                                             <div class="card-content">
                                                 <h5 class="font-15">Logout</h5>
                                                 <h2 class="mb-3 font-18"></h2>
-                                                <p class="mb-0"><span class="col-green">42%</span> Increase
-                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
@@ -194,7 +188,7 @@
                                 </div>
                                 <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion">
                                     <p class="mb-0">Inventaris section terdapat pada bar pilihan di samping yang
-                                        berfungsi untuk melihat dan menambahkan data inventaris.
+                                        berfungsi untuk melihat dan menambahkan data inventaris. Jika saat penambahan data inventaris terdapat jenis dan merk yang belum tersedia, bisa ditambahkan terlebih dahulu di halaman Jenis & Merk
                                         Selain menambahkan data inventaris, section tersebut memiliki fungsi untuk mencetak
                                         stiker yang digunakan untuk ditempelkan pada
                                         barang aset inventaris. Data pada table inventaris juga dapat di-export untuk
@@ -208,13 +202,7 @@
                                     <h4>Data & Merk Section</h4>
                                 </div>
                                 <div class="accordion-body collapse" id="panel-body-3" data-parent="#accordion">
-                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                        do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p class="mb-0">Pada tab jenis dan merk terdapat urutan jenis yang terdata dan merk sesuai pada jenisnya. Tambahkan jenis jika jenis barang belum tersedia kemudian baru masukkan merk pada tiap jenis-jenis. Data merk dan jenis ini nantinya akan digunakan untuk membuat data inventaris sehingga perlu ditambahkan di awal jika jenis dan merk belum tersedia</p>
                                 </div>
                             </div>
                         </div>
